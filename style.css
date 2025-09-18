@@ -1,0 +1,508 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Gothic&family=Special+Gothic+Expanded+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Special Gothic Expanded One", sans-serif;
+}
+
+header {
+    font-size: 1.3rem;
+    background-color: transparent !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+
+.logo {
+    width: 90px;
+    height: 47px;
+    background-image: url('imagenes/logo1.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    font-size: 0; 
+}
+
+.nav-link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #DF80D1; 
+  transition: all 0.4s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover {
+  color: #ffffff !important; 
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.boton-gradiente {
+  background: linear-gradient(90deg, #B772FF 0%, #DF80D1 100%);
+  border: none;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  font-weight: lighter
+}
+
+.boton-gradiente:hover {
+  background: black; 
+  transform: translateY(-2px); 
+  color: white;
+}
+
+
+
+#carouselBanner .carousel-item {
+  height: 100vh; 
+  min-height: 400px; 
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.3); 
+  text-align: center;
+}
+
+.carousel-caption h2 {
+  font-size: 2.5rem;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.zocalo-estadisticas {
+  background-color: #000000;
+  color: #DF80D1;
+  font-family: "Special Gothic Expanded One", sans-serif;
+}
+
+.numero-estadistica {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.texto-estadistica {
+  font-size: 1rem;
+  color: #DF80D1;
+}
+
+/*Parte texto largo*/
+
+.nota-principal {
+  background-color: #111;
+  color: #eee;
+  font-family: "Special Gothic Expanded One", sans-serif;
+}
+
+.titulo-nota {
+  color: #DF80D1;
+  font-size: 2.8rem;
+}
+
+.subtitulo-nota {
+  font-size: 1.2rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+.cita-destacada {
+  background-color: #222;
+  border-left: 5px solid #DF80D1;
+  padding: 1rem;
+  font-size: 1.1rem;
+  color: #DF80D1;
+  font-style: italic;
+}
+
+.sombra-img {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+}
+
+
+/*Pastillas*/
+.pastilla {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.pastilla:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+
+.pastilla p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400; 
+  color: #000000; 
+  font-size: 0.95rem;
+}
+
+
+
+.icono-pastilla {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+/* Botón personalizado */
+.boton-rosa {
+  background-color: #DF80D1;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 100;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  font-size: 0.8rem;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.boton-rosa:hover {
+  background-color: #000000;
+  transform: translateY(-2px);
+}
+
+
+
+
+/* Fondo general */
+.seccion-color-diseño {
+  padding: 80px 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Contenedor flex */
+.contenedor {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Columnas */
+.columna {
+  flex: 1 1 500px;
+}
+
+.etiqueta {
+  display: inline-block;
+  background-color: #DF80D1;
+  color: white;
+  font-size: 0.75rem;
+  padding: 5px 14px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  animation: fadeIn 1s ease-in;
+}
+
+.titulo {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #000000;
+  margin-bottom: 15px;
+}
+
+.separador {
+  width: 60px;
+  height: 4px;
+  background-color: #DF80D1;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.descripcion {
+  font-size: 1.1rem;
+  color: #000000;
+  margin-bottom: 25px;
+  line-height: 1.6;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Lista con puntos de color */
+.lista {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1rem;
+}
+
+.lista li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.3s ease;
+}
+
+.lista li:hover {
+  transform: translateX(5px);
+}
+
+.punto {
+  width: 10px;
+  height: 10px;
+  background-color: #DF80D1;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: background-color 0.3s ease;
+}
+
+.lista li:hover .punto {
+  background-color: #b04da4;
+}
+
+/* Video */
+.video-wrapper {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease;
+}
+
+.video-wrapper:hover {
+  transform: scale(1.02);
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 315px;
+  border: none;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+ .seccion-contacto {
+      display: flex;
+      flex-wrap: wrap;
+      min-height: 100%;
+    }
+
+    .lado-izquierdo {
+      flex: 1;
+      background-image: url('imagenes/imagencuestionario.jpg'); 
+      background-size: cover;
+      background-position: center;
+    }
+
+    .lado-derecho {
+      flex: 1;
+      background-color: #000;
+      color: white;
+      padding: 60px 40px;
+      display: flex;
+      align-items: center;
+    }
+
+    .formulario-wrapper {
+      width: 100%;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .formulario-wrapper h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #DF80D1;
+    }
+
+    .form-control,
+    .form-control:focus {
+      background-color: #222;
+      border: 1px solid #444;
+      color: white;
+    }
+
+    .btn-enviar {
+      background-color: #DF80D1;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-enviar:hover {
+      background-color: #b04da4;
+    }
+
+    .footer-dark h5,.footer-dark h6 {
+     color: #fff;
+     font-weight: 700;
+}
+
+    .footer-dark a {
+  color: #bbb;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+   .footer-dark a:hover {
+  color: #DF80D1;
+}
+
+   .footer-dark .redes a:hover {
+  color: #DF80D1;
+}
+
+   .footer-dark button:hover {
+  background-color: #fff;
+  color: #DF80D1;
+}
+
+
+footer h6 {
+  border-bottom: 2px solid #DF80D1;
+  display: inline-block;
+  padding-bottom: 4px;
+  margin-bottom: 1rem;
+}
+
+
+footer a i {
+  transition: transform 0.2s ease-in-out;
+}
+
+footer a:hover i {
+  transform: scale(1.2);
+  color: #DF80D1 !important;
+}
+
+.footer-dark .redes a {
+  text-decoration: none !important;
+  color: #fff !important;
+  font-size: 1.4rem;
+  margin-right: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.footer-dark .redes a:hover {
+  color: #DF80D1 !important;
+  transform: scale(1.2);
+}
+
+
+footer a:hover {
+  color: #DF80D1 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* móviles */
+@media (max-width: 767px) {
+    .logo {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #carouselBanner .carousel-item {
+    height: 50vh;
+  }
+
+   .carousel-caption h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 988px) {
+  .banner .boton-gradiente {
+    margin-bottom: 1.5rem;
+  }
+  
+  .texto1 {
+    margin-bottom: -10px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+}
+
+
+
+@media (max-width: 767.98px) {
+   .nav-link {
+    font-size: 0.9rem !important;
+    margin-bottom: -5px;
+  }
+}  
+
+/* Para alinear el logo a la izquierda en pantallas grandes */
+@media (min-width: 768px) {
+    .logo {
+        margin-left: 0;
+        margin-right: 0;
+        margin-left: 20px;
+    }
+    .botonera {
+        margin-right: 50px;
+    }
+    
+}
