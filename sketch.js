@@ -1,10 +1,11 @@
 let miCanvas
 function setup() {
-    miCanvas = createCanvas(visualViewport, windowHeight);
+    scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    miCanvas = createCanvas(windowWidth - scrollbarWidth, windowHeight);
     miCanvas.parent('padre-script'); 
     
 }
 
 function draw() {
-    background("#d9d9d9");
+    background("black");
 }

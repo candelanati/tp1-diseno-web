@@ -17,10 +17,12 @@ header {
     z-index: 10;
 }
 
-
-.script{
-    top: 0px;
-}
+/* 
+section{
+    margin: 0px;
+    padding: 0px;
+    height: auto;
+} */
 
 .logo {
     width: 90px;
