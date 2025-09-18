@@ -13,7 +13,7 @@ let palette = ["#DF80D1", "#B772FF", "#FFFFFF"];
 
 
 function draw() {
-  background(0);
+  background("#ffffff");
 
   // Circulitos del mouse
   circles.push(new Circle(mouseX, mouseY, random(palette)));
