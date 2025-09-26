@@ -1,82 +1,96 @@
-let miCanvas;
-let circles = [];
-let squares = [];
-let triangles = []; // nuevos triángulos
-let palette = ["#DF80D1", "#B772FF", "#FFFFFF"];
+let miCanvas; 
+let figuras = []; 
+const PALETTE = ["#DF80D1", "#B772FF", "#FFFFFF"]; 
+let mensaje1 = "Diseño sin limites"; 
+let mensaje2 = "Creatividad en movimiento"; 
 
 function setup() {
-  scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+  let scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
   miCanvas = createCanvas(windowWidth - scrollbarWidth, windowHeight);
   miCanvas.parent('padre-script'); 
   textAlign(CENTER, CENTER);
+  ellipseMode(RADIUS); 
+  rectMode(CENTER);    
+  colorMode(RGB);      
 }
 
 function draw() {
-  background("#ffffff");
+  // Fondo blanco
+  background(255);
 
-  // Circulitos del mouse
-  circles.push(new Circle(mouseX, mouseY, random(palette)));
-  for (let i = circles.length - 1; i >= 0; i--) {
-    circles[i].update();
-    circles[i].show();
-    if (circles[i].finished()) {
-      circles.splice(i, 1);
+  // Estela del mouse más chica
+  if (mouseIsPressed || (pmouseX !== mouseX && pmouseY !== mouseY)) {
+    for (let i = 0; i < 2; i++) {
+      agregarFigura(mouseX + random(-2, 2), mouseY + random(-2, 2), "circle");
     }
   }
 
   // Circulitos automáticos
   if (frameCount % 15 === 0) {
-    let x = random(width);
-    let y = random(height);
-    circles.push(new Circle(x, y, random(palette)));
+    agregarFigura(random(width), random(height), "circle");
   }
 
   // Triángulos automáticos
-  if (frameCount % 30 === 0) { // cada 30 frames
-    let x = random(width);
-    let y = random(height);
-    triangles.push(new TriangleShape(x, y, random(palette)));
+  if (frameCount % 30 === 0) {
+    agregarFigura(random(width), random(height), "triangle");
   }
 
-  for (let i = triangles.length - 1; i >= 0; i--) {
-    triangles[i].update();
-    triangles[i].show();
-    if (triangles[i].finished()) {
-      triangles.splice(i, 1);
-    }
-  }
-
-  // Cuadraditos que caen
+  // Cuadrados que caen
   if (frameCount % 20 === 0) {
-    squares.push(new Square(random(width), -20, random(palette)));
+    agregarFigura(random(width), -20, "square");
   }
 
-  for (let i = squares.length - 1; i >= 0; i--) {
-    squares[i].update();
-    squares[i].show();
-    if (squares[i].finished()) {
-      squares.splice(i, 1);
+  // update y draw de cada figura
+  for (let i = figuras.length - 1; i >= 0; i--) {
+    figuras[i].update();
+    figuras[i].show();
+    if (figuras[i].finished()) {
+      figuras.splice(i, 1);
     }
   }
 
-  // Texto centrado
-  fill(0);
+  // Texto centrado con dos líneas
+  push();
+  fill(50);
+  stroke(200, 100); 
+  strokeWeight(2);
   textSize(48);
+  textStyle(BOLD); 
   textFont("Special Gothic Expanded One");
-  text("Diseño sin limites", width / 2, height / 2);
+  text(mensaje1, width / 2, height / 2 - 30); 
+  textSize(24);
+  textStyle(NORMAL);
+  text(mensaje2, width / 2, height / 2 + 20);
+  pop();
 }
 
-// --- Clases ---
-class Circle {
+// -------- FUNCIONES --------
+function agregarFigura(x, y, tipo) {
+  if (tipo === "circle") {
+    figuras.push(new CircleShape(x, y, random(PALETTE)));
+  } else if (tipo === "square") {
+    figuras.push(new SquareShape(x, y, random(PALETTE)));
+  } else if (tipo === "triangle") {
+    figuras.push(new TriangleShape(x, y, random(PALETTE)));
+  }
+}
+
+function mousePressed() {
+  agregarFigura(mouseX, mouseY, "circle");
+  agregarFigura(mouseX, mouseY, "triangle");
+}
+
+// -------- CLASES --------
+class CircleShape {
   constructor(x, y, c) {
     this.x = x;
     this.y = y;
-    this.c = color(c);
-    this.r = 5;
+    this.color = color(c);
+    this.r = 2; // más chico
     this.alpha = 255;
   }
   update() {
-    this.r += 1.5;
+    this.r += 1; // crece menos
     this.alpha -= 4;
   }
   finished() {
@@ -84,16 +98,16 @@ class Circle {
   }
   show() {
     noStroke();
-    fill(red(this.c), green(this.c), blue(this.c), this.alpha);
-    ellipse(this.x, this.y, this.r);
+    fill(red(this.color), green(this.color), blue(this.color), this.alpha);
+    ellipse(this.x, this.y, this.r); 
   }
 }
 
-class Square {
+class SquareShape {
   constructor(x, y, c) {
     this.x = x;
     this.y = y;
-    this.c = color(c);
+    this.color = color(c);
     this.size = random(10, 25);
     this.alpha = 255;
     this.speed = random(1, 3);
@@ -107,20 +121,22 @@ class Square {
     return this.alpha <= 0 || this.y > height + this.size;
   }
   show() {
+    push();
+    translate(this.x, this.y);
+    rotate(frameCount * 0.02); 
     noStroke();
-    fill(red(this.c), green(this.c), blue(this.c), this.alpha);
-    rectMode(CENTER);
-    rect(this.x, this.y, this.size, this.size);
+    fill(red(this.color), green(this.color), blue(this.color), this.alpha);
+    square(0, 0, this.size, 5); 
+    pop();
   }
 }
 
-// --- Nueva clase Triángulo ---
 class TriangleShape {
   constructor(x, y, c) {
     this.x = x;
     this.y = y;
-    this.c = color(c);
-    this.size = random(10, 30);
+    this.color = color(c);
+    this.size = random(15, 30);
     this.alpha = 255;
     this.speedX = random(-1, 1);
     this.speedY = random(-1, 1);
@@ -134,12 +150,14 @@ class TriangleShape {
     return this.alpha <= 0;
   }
   show() {
-    noStroke();
-    fill(red(this.c), green(this.c), blue(this.c), this.alpha);
-    triangle(
-      this.x, this.y - this.size / 2,
-      this.x - this.size / 2, this.y + this.size / 2,
-      this.x + this.size / 2, this.y + this.size / 2
-    );
+    stroke(0, this.alpha); 
+    strokeWeight(1);
+    fill(this.color.levels[0], this.color.levels[1], this.color.levels[2], this.alpha);
+
+    beginShape();
+    vertex(this.x, this.y - this.size / 2);
+    vertex(this.x - this.size / 2, this.y + this.size / 2);
+    vertex(this.x + this.size / 2, this.y + this.size / 2);
+    endShape(CLOSE);
   }
 }
