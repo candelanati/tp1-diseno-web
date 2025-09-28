@@ -2,19 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    font-family: "Special Gothic Expanded One", sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Special Gothic Expanded One", sans-serif;
 }
 
 header {
-    font-size: 1.3rem;
-    background-color: transparent !important;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
+  font-size: 1.3rem;
+  background-color: transparent !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
 }
 
 /* 
@@ -25,14 +25,14 @@ section{
 } */
 
 .logo {
-    width: 90px;
-    height: 47px;
-    background-image: url('imagenes/logo1.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: block;
-    font-size: 0; 
+  width: 90px;
+  height: 47px;
+  background-image: url('imagenes/logo1.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  font-size: 0;
 }
 
 .nav-link {
@@ -49,13 +49,13 @@ section{
   bottom: 0;
   width: 0%;
   height: 2px;
-  background-color: #DF80D1; 
+  background-color: #DF80D1;
   transition: all 0.4s ease;
   transform: translateX(-50%);
 }
 
 .nav-link:hover {
-  color: #DF80D1 !important; 
+  color: #DF80D1 !important;
 }
 
 .nav-link:hover::after {
@@ -77,16 +77,16 @@ section{
 }
 
 .boton-gradiente:hover {
-  background: black; 
-  transform: translateY(-2px); 
+  background: black;
+  transform: translateY(-2px);
   color: white;
 }
 
 
 
 #carouselBanner .carousel-item {
-  height: 100vh; 
-  min-height: 400px; 
+  height: 100vh;
+  min-height: 400px;
 }
 
 .banner-img {
@@ -101,7 +101,7 @@ section{
   left: 0;
   width: 100%;
   padding: 2rem;
-  background: rgba(0, 0, 0, 0.3); 
+  background: rgba(0, 0, 0, 0.3);
   text-align: center;
 }
 
@@ -181,8 +181,8 @@ section{
 
 .pastilla p {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 400; 
-  color: #000000; 
+  font-weight: 400;
+  color: #000000;
   font-size: 0.95rem;
 }
 
@@ -231,6 +231,35 @@ section{
   flex-wrap: wrap;
   align-items: center;
   gap: 40px;
+}
+
+.integrantes {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 80px;
+  justify-content: center;
+}
+
+.cards-integrantes {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+
+  svg {
+    width: 64px;
+  }
+
+  .info-cards-integrantes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 400px !important;
+
+    .black-info-extra {
+      color: #3b3b3b;
+    }
+  }
 }
 
 /* Columnas */
@@ -326,87 +355,95 @@ section{
 
 /* Animaciones */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
 
 
- .seccion-contacto {
-      display: flex;
-      flex-wrap: wrap;
-      min-height: 100%;
-    }
-
-    .lado-izquierdo {
-      flex: 1;
-      background-image: url('imagenes/imagencuestionario.jpg'); 
-      background-size: cover;
-      background-position: center;
-    }
-
-    .lado-derecho {
-      flex: 1;
-      background-color: #000;
-      color: white;
-      padding: 60px 40px;
-      display: flex;
-      align-items: center;
-    }
-
-    .formulario-wrapper {
-      width: 100%;
-      max-width: 500px;
-      margin: auto;
-    }
-
-    .formulario-wrapper h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #DF80D1;
-    }
-
-    .form-control,
-    .form-control:focus {
-      background-color: #222;
-      border: 1px solid #444;
-      color: white;
-    }
-
-    .btn-enviar {
-      background-color: #DF80D1;
-      border: none;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 10px;
-      transition: background-color 0.3s ease;
-    }
-
-    .btn-enviar:hover {
-      background-color: #b04da4;
-    }
-
-    .footer-dark h5,.footer-dark h6 {
-     color: #fff;
-     font-weight: 700;
+.seccion-contacto {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100%;
 }
 
-    .footer-dark a {
+.lado-izquierdo {
+  flex: 1;
+  background-image: url('imagenes/imagencuestionario.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.lado-derecho {
+  flex: 1;
+  background-color: #000;
+  color: white;
+  padding: 60px 40px;
+  display: flex;
+  align-items: center;
+}
+
+.formulario-wrapper {
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+}
+
+.formulario-wrapper h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #DF80D1;
+}
+
+.form-control,
+.form-control:focus {
+  background-color: #222;
+  border: 1px solid #444;
+  color: white;
+}
+
+.btn-enviar {
+  background-color: #DF80D1;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-enviar:hover {
+  background-color: #b04da4;
+}
+
+.footer-dark h5,
+.footer-dark h6 {
+  color: #fff;
+  font-weight: 700;
+}
+
+.footer-dark a {
   color: #bbb;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-   .footer-dark a:hover {
+.footer-dark a:hover {
   color: #DF80D1;
 }
 
-   .footer-dark .redes a:hover {
+.footer-dark .redes a:hover {
   color: #DF80D1;
 }
 
-   .footer-dark button:hover {
+.footer-dark button:hover {
   background-color: #fff;
   color: #DF80D1;
 }
@@ -462,16 +499,16 @@ footer a:hover {
 
 /* móviles */
 @media (max-width: 767px) {
-    .logo {
-        margin-left: auto;
-        margin-right: auto;
-    }
+  .logo {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-    #carouselBanner .carousel-item {
+  #carouselBanner .carousel-item {
     height: 50vh;
   }
 
-   .carousel-caption h2 {
+  .carousel-caption h2 {
     font-size: 1.5rem;
   }
 }
@@ -480,7 +517,7 @@ footer a:hover {
   .banner .boton-gradiente {
     margin-bottom: 1.5rem;
   }
-  
+
   .texto1 {
     margin-bottom: -10px;
   }
@@ -494,21 +531,22 @@ footer a:hover {
 
 
 @media (max-width: 767.98px) {
-   .nav-link {
+  .nav-link {
     font-size: 0.9rem !important;
     margin-bottom: -5px;
   }
-}  
+}
 
 /* Para alinear el logo a la izquierda en pantallas grandes */
 @media (min-width: 768px) {
-    .logo {
-        margin-left: 0;
-        margin-right: 0;
-        margin-left: 20px;
-    }
-    .botonera {
-        margin-right: 50px;
-    }
-    
+  .logo {
+    margin-left: 0;
+    margin-right: 0;
+    margin-left: 20px;
+  }
+
+  .botonera {
+    margin-right: 50px;
+  }
+
 }
