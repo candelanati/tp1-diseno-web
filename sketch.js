@@ -15,32 +15,31 @@ function setup() {
 }
 
 function draw() {
-  // Fondo blanco
   background(255);
 
-  // Estela del mouse más chica
+  
   if (mouseIsPressed || (pmouseX !== mouseX && pmouseY !== mouseY)) {
     for (let i = 0; i < 2; i++) {
       agregarFigura(mouseX + random(-2, 2), mouseY + random(-2, 2), "circle");
     }
   }
 
-  // Circulitos automáticos
+  
   if (frameCount % 15 === 0) {
     agregarFigura(random(width), random(height), "circle");
   }
 
-  // Triángulos automáticos
+  
   if (frameCount % 30 === 0) {
     agregarFigura(random(width), random(height), "triangle");
   }
 
-  // Cuadrados que caen
+  
   if (frameCount % 20 === 0) {
     agregarFigura(random(width), -20, "square");
   }
 
-  // update y draw de cada figura
+  
   for (let i = figuras.length - 1; i >= 0; i--) {
     figuras[i].update();
     figuras[i].show();
@@ -49,7 +48,7 @@ function draw() {
     }
   }
 
-  // Texto centrado con dos líneas
+  
   push();
   fill(50);
   stroke(200, 100); 
@@ -64,7 +63,7 @@ function draw() {
   pop();
 }
 
-// -------- FUNCIONES --------
+
 function agregarFigura(x, y, tipo) {
   if (tipo === "circle") {
     figuras.push(new CircleShape(x, y, random(PALETTE)));
@@ -80,17 +79,16 @@ function mousePressed() {
   agregarFigura(mouseX, mouseY, "triangle");
 }
 
-// -------- CLASES --------
 class CircleShape {
   constructor(x, y, c) {
     this.x = x;
     this.y = y;
     this.color = color(c);
-    this.r = 2; // más chico
+    this.r = 2; 
     this.alpha = 255;
   }
   update() {
-    this.r += 1; // crece menos
+    this.r += 1; 
     this.alpha -= 4;
   }
   finished() {
